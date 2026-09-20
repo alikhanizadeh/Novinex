@@ -459,16 +459,16 @@ export default function App() {
         activeCategory={activeCategory}
         onSearchClick={scrollToCatalog}
         searchQuery={searchQuery}
-        setSearchQuery={(q) => {
-          setSearchQuery(q);
-          if (q.trim()) scrollToCatalog();
-        }}
+        setSearchQuery={setSearchQuery}
         onProfileClick={() => setIsProfileOpen(true)}
         onNavigateHome={handleNavigateHome}
         onNavigateAbout={handleNavigateAbout}
         onOpenContact={handleOpenContact}
         currentUser={currentUser}
         currentView={currentView}
+        products={products}
+        onSelectProduct={(p) => setSelectedProduct(p)}
+        scrollToCatalog={scrollToCatalog}
       />
 
       {/* Main View Router */}
