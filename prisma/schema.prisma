@@ -1,0 +1,131 @@
+// Prisma Schema for Modern Kitchen (آشپزخانه مدرن)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id          String         @id @default(uuid())
+  name        String
+  email       String         @unique
+  phone       String?
+  address     String?
+  password    String?
+  role        String         @default("کاربر عادی")
+  avatar      String?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  orders      Order[]
+  reviews     Review[]
+  wishlists   WishlistItem[]
+}
+
+model Category {
+  id       String    @id
+  nameFa   String
+  image    String
+  count    Int       @default(0)
+  products Product[]
+}
+
+model Product {
+  id             String         @id
+  nameFa         String
+  nameEn         String?
+  brand          String
+  categoryId     String
+  category       Category       @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  price          Float
+  originalPrice  Float?
+  rating         Float          @default(5.0)
+  reviewsCount   Int            @default(0)
+  badge          String?
+  isSpecialOffer Boolean        @default(false)
+  isFeatured     Boolean        @default(false)
+  inStock        Boolean        @default(true)
+  material       String?
+  origin         String?
+  specs          String
+  description    String
+  image          String
+  gallery        String? // JSON string array
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  orderItems     OrderItem[]
+  reviews        Review[]
+  wishlists      WishlistItem[]
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  name      String
+  role      String   @default("خریدار محصول")
+  rating    Int      @default(5)
+  comment   String
+  avatar    String?
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  createdAt DateTime @default(now())
+}
+
+model Order {
+  id            String      @id @default(uuid())
+  trackingCode  String      @unique
+  userId        String?
+  user          User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  recipientName String
+  phone         String
+  address       String
+  totalAmount   Float
+  status        String      @default("در حال پردازش") // 'در حال پردازش' | 'ارسال شده' | 'تحویل شده'
+  notes         String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  items         OrderItem[]
+}
+
+model OrderItem {
+  id            String  @id @default(uuid())
+  orderId       String
+  order         Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId     String
+  product       Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+  quantity      Int     @default(1)
+  price         Float
+  selectedColor String?
+}
+
+model ContactMessage {
+  id        String   @id @default(uuid())
+  name      String
+  phone     String
+  subject   String
+  message   String
+  status    String   @default("جدید") // 'جدید' | 'در حال بررسی' | 'پاسخ داده شده'
+  createdAt DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model WishlistItem {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
