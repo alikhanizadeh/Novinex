@@ -1,8 +1,8 @@
-<div align="center" dir="rtl">
+<div align="center">
 
-# 🍳 آشپزخانه مدرن (Modern Kitchen)
+# 🍳 Modern Kitchen (آشپزخانه مدرن)
 
-**فروشگاه آنلاین فول‌استک تجهیزات و ظروف لوکس آشپزخانه**
+**A Full-Stack, Luxury Kitchenware & Culinary Equipment E-Commerce Platform**
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -13,161 +13,161 @@
 
 ---
 
-### 🌐 پشتیبانی چندزبانه (Multi-Language Support)
+### 🌐 Multi-Language Support
 
-[![English](https://img.shields.io/badge/Language-English-1e293b?style=for-the-badge)](./README.md)
-[![Persian](https://img.shields.io/badge/زبان-فارسی_(فعال)-f09267?style=for-the-badge)](./README.fa.md)
+[![English](<https://img.shields.io/badge/Language-English_(Active)-f09267?style=for-the-badge>)](./README.md)
+[![Persian](<https://img.shields.io/badge/زبان-فارسی_(Persian)-1e293b?style=for-the-badge>)](./README.fa.md)
 
-**زبان‌های در دسترس:**  
+**Available Languages:**  
 [**English**](./README.md) | [**فارسی (Persian)**](./README.fa.md)
 
 </div>
 
 ---
 
-<div dir="rtl">
+## 📖 Overview
 
-## 📖 معرفی پروژه
-
-**آشپزخانه مدرن (Modern Kitchen)** یک وب‌اپلیکیشن فروشگاهی مدرن، راست‌چین (RTL) و فول‌استک برای نمایش و فروش تجهیزات آشپزخانه، قابلمه، ماهیتابه، ظروف پذیرایی و لوازم برقی است. این پروژه ظاهر شیشه‌ای و مدرن **React 19 + Tailwind CSS v4** را با یک بک‌اند قدرتمند **Express.js + Prisma (PostgreSQL)** ترکیب می‌کند و دارای سیستم حافظه داخلی جایگزین (In-Memory Fallback) است تا حتی بدون اتصال به دیتابیس نیز بلافاصله اجرا و تست شود.
+**Modern Kitchen (آشپزخانه مدرن)** is a full-stack, RTL-ready e-commerce web application built for showcasing and selling premium kitchenware, cookware, dining sets, and culinary appliances. It combines a sleek dark-glassmorphism storefront in **React 19 + Tailwind CSS v4** with an **Express.js + Prisma (PostgreSQL)** backend—complete with an automatic in-memory fallback store so you can run and test the application immediately with or without a database.
 
 ---
 
-## ✨ امکانات کلیدی
+## ✨ Key Features
 
-- **🔐 ورود و ثبت‌نام دوحالته + ارسال کد تأیید پیامکی (۴ رقمی OTP)**
-  - دو حالت تمیز **ورود** و **ثبت‌نام** همراه با ارسال و بررسی کد تأیید ۴ رقمی (`/api/auth/send-otp` و `/api/auth/verify-otp`).
-  - سازگار با پنل‌های پیامکی **کاوه‌نگار (Kavenegar)**، **فراز اس‌ام‌اس / IPPanel**، **ملی‌پیامک** و حالت تست خودکار در محیط توسعه.
-  - **مدال هوشمند احراز هویت (`AuthRequiredModal`)**: در صورتی که کاربر وارد حساب نشده باشد و بخواهد محصولی را به سبد خرید یا علاقه‌مندی‌ها اضافه کند، پیغام راهنما به همراه دکمه هدایت مستقیم به ثبت‌نام نمایش داده می‌شود.
-- **🔍 جستجوی زنده و هوشمند (Live Search)**
-  - نمایش آنی لیست کالاهای مرتبط هنگام تایپ همراه با تصویر، نام محصول، برند و قیمت به تومان.
-  - **تجربه کاربری بهینه در موبایل**: از اسکرول ناخواسته و پرش صفحه هنگام تایپ در موبایل جلوگیری می‌کند؛ اسکرول فقط زمانی انجام می‌شود که کاربر یکی از پیشنهادات را انتخاب کند یا نتیجه معتبری وجود داشته باشد. در غیر این صورت پیام واضح «کالایی با این عنوان یا مشخصات یافت نشد» نمایش داده می‌شود.
-- **🧭 هدر ریسپانسیو و راست‌چین (RTL Header)**
-  - قرارگیری ثابت لوگو و نام برند در گوشه سمت راست و آیکون حساب کاربری و سبد خرید در گوشه سمت چپ در تمامی صفحات.
-  - کادر جستجوی کامل در دسکتاپ و آیکون جستجو به همراه دکمه منو در موبایل.
-- **🛒 سبد خرید، علاقه‌مندی‌ها و ثبت سفارش**
-  - کشوهای تعاملی سبد خرید و علاقه‌مندی‌ها، تغییر تعداد، انتخاب رنگ محصول و صدور کد رهگیری سفارش.
-- **📦 بک‌اند ماژولار با پشتیبانی خودکار بدون دیتابیس**
-  - API کامل با **Express.js** و **Prisma ORM (PostgreSQL / Neon)** همراه با ذخیره‌سازی موقت در حافظه در صورت تنظیم‌نشدن `DATABASE_URL`.
-- **☁️ آماده استقرار در Vercel**
-  - مجهز به فایل‌های `vercel.json` و `/api/index.ts` برای اجرای هم‌زمان فرانت‌اند و APIهای سرورلس روی ورسل.
-
----
-
-## 🛠️ تکنولوژی‌های استفاده‌شده
-
-| بخش | ابزارها و فریم‌ورک‌ها |
-| :--- | :--- |
-| **فرانت‌اند (Frontend)** | React 19, TypeScript 5.8, Vite 6, Tailwind CSS v4, Lucide React, Motion |
-| **بک‌اند (Backend)** | Node.js, Express.js 4, REST API |
-| **دیتابیس و ORM** | Prisma 6, PostgreSQL (Neon / Cloud SQL) + In-Memory Store Fallback |
-| **پیامک و هوش مصنوعی** | کاوه‌نگار / IPPanel / ملی‌پیامک (OTP) و `@google/genai` |
-| **استقرار (Deploy)** | Vercel (Static Build + Serverless Functions) |
+- **🔐 Dual-Mode Authentication + 4-Digit SMS OTP**
+  - Clean **Login** and **Register** flows enhanced with 4-digit SMS verification codes (`/api/auth/send-otp` & `/api/auth/verify-otp`).
+  - Supports **Kavenegar**, **IPPanel / FarazSMS**, **MeliPayamak**, or instant development fallback mode.
+  - **Auth Interceptor Modal (`AuthRequiredModal`)**: Prompts unauthenticated users to sign in or quickly register when adding items to their cart or wishlist.
+- **🔍 Live Smart Search & Suggestions**
+  - Real-time dropdown suggestions with product thumbnails, brand tags, and formatted Toman pricing.
+  - **Smart Mobile UX**: Prevents unwanted auto-scroll jumping on mobile screens while typing; scrolls smoothly only when a product is selected or valid results exist, and displays a clear _"No products found"_ state otherwise.
+- **🧭 Responsive RTL Header & Navigation**
+  - Pinned brand identity on the right, account & cart controls on the left, adaptive search input (full bar on desktop, expandable icon on mobile), and mobile drawer menu.
+- **🛒 Persistent Cart, Wishlist & Checkout**
+  - Interactive slide-over Cart and Wishlist drawers, quantity controls, color selection, and order tracking code generation.
+- **📦 Full-Stack Backend with Zero-Config Fallback**
+  - RESTful Express API powered by **Prisma ORM + PostgreSQL (Neon compatible)**, seamlessly falling back to an in-memory store when `DATABASE_URL` is not provided.
+- **☁️ One-Click Vercel Serverless Ready**
+  - Pre-configured with `vercel.json` and `/api/index.ts` to deploy both the Vite frontend and Express API routes seamlessly on Vercel.
 
 ---
 
-## 📂 ساختار پوشه‌های پروژه
+## 🛠️ Tech Stack
 
-</div>
+| Layer              | Technologies                                                            |
+| :----------------- | :---------------------------------------------------------------------- |
+| **Frontend**       | React 19, TypeScript 5.8, Vite 6, Tailwind CSS v4, Lucide React, Motion |
+| **Backend**        | Node.js, Express.js 4, REST API                                         |
+| **Database & ORM** | Prisma 6, PostgreSQL (Neon / Cloud SQL) + In-Memory Store Fallback      |
+| **SMS & AI**       | Kavenegar / IPPanel / MeliPayamak OTP, `@google/genai`                  |
+| **Deployment**     | Vercel (Static Build + Serverless Functions)                            |
+
+---
+
+## 📂 Project Structure
 
 ```text
 ├── api/
-│   └── index.ts                 # نقطه ورود سرورلس Vercel برای اجرای Express
+│   └── index.ts                 # Vercel Serverless entry point wrapping Express app
 ├── prisma/
-│   ├── schema.prisma            # مدل‌های دیتابیس PostgreSQL (کاربر، محصول، سفارش و...)
-│   └── seed.ts                  # اسکریپت داده‌های اولیه دیتابیس
+│   ├── schema.prisma            # PostgreSQL database models (User, Product, Order, etc.)
+│   └── seed.ts                  # Initial database seed script
 ├── server/
-│   ├── app.ts                   # تنظیمات اصلی Express، CORS و مسیرهای API
-│   ├── index.ts                 # سرور محلی Node/Vite برای اجرا در حالت توسعه و پروداکشن
-│   ├── routes/                  # روترهای API (auth، products، cart، orders و...)
-│   ├── services/                # سرویس‌های پیامک OTP و منطق برنامه
-│   └── store/                   # حافظه موقت جایگزین در نبود دیتابیس
+│   ├── app.ts                   # Express app setup, CORS & API router mounting
+│   ├── index.ts                 # Local Node/Vite dev & production server
+│   ├── routes/                  # Modular API endpoints (auth, products, cart, orders, ...)
+│   ├── services/                # SMS OTP & business services
+│   └── store/                   # In-memory fallback store
 ├── src/
-│   ├── components/              # کامپوننت‌های رابط کاربری (Header، Hero، مودال‌ها و...)
-│   ├── data/                    # داده‌های اولیه کاتالوگ محصولات
-│   ├── lib/                     # توابع کمکی (اعداد فارسی و قیمت تومان) و کلاینت Prisma
-│   ├── App.tsx                  # مدیریت وضعیت اصلی و صفحات برنامه
-│   └── types.ts                 # تایپ‌های TypeScript مشترک
-├── server.ts                    # فایل اجرایی سرور توسعه
-├── vercel.json                  # تنظیمات مسیریابی API در Vercel
-└── package.json                 # اسکریپت‌ها و پکیج‌های پروژه
+│   ├── components/              # UI components (Header, Hero, AuthRequiredModal, Drawers, ...)
+│   ├── data/                    # Static catalog & seed helpers
+│   ├── lib/                     # Formatters (Persian digits/Toman) & Prisma client
+│   ├── App.tsx                  # Root application state & views
+│   └── types.ts                 # Shared TypeScript interfaces
+├── server.ts                    # Entry point for dev & bundled server
+├── vercel.json                  # Vercel API rewrite configuration
+└── package.json                 # Scripts & dependencies
 ```
-
-<div dir="rtl">
 
 ---
 
-## 🚀 راهنمای نصب و اجرای محلی
+## 🚀 Getting Started
 
-### ۱. کلون کردن مخزن
+### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/your-username/modern-kitchen.git
 cd modern-kitchen
 ```
 
-### ۲. نصب پکیج‌ها
+### 2. Install Dependencies
+
 ```bash
 npm install
 ```
 
-### ۳. تنظیم متغیرهای محیطی (اختیاری)
-فایل `.env.example` را به `.env` کپی کنید (برای اجرای آزمایشی بدون دیتابیس هم برنامه بدون مشکل کار می‌کند):
+### 3. Configure Environment Variables
+
+Copy `.env.example` to `.env` and fill in your credentials (optional for local testing thanks to in-memory fallback):
+
 ```bash
 cp .env.example .env
 ```
 
-| متغیر | توضیح | وضعیت |
-| :--- | :--- | :--- |
-| `DATABASE_URL` | آدرس اتصال PostgreSQL (مثلاً Neon) | اختیاری (در نبود آن از حافظه موقت استفاده می‌شود) |
-| `DIRECT_URL` | آدرس مستقیم PostgreSQL برای مایگریشن Prisma | اختیاری |
-| `GEMINI_API_KEY` | کلید API جمنای برای قابلیت‌های سمت سرور | اختیاری |
-| `SMS_PROVIDER` | `kavenegar`، `ippanel` یا `melipayamak` | اختیاری (در حالت تست کد در پاسخ برمی‌گردد) |
-| `KAVENEGAR_API_KEY` / `SMS_API_KEY` | کلید API پنل پیامک | اختیاری |
+| Variable                            | Description                                          | Required                                      |
+| :---------------------------------- | :--------------------------------------------------- | :-------------------------------------------- |
+| `DATABASE_URL`                      | PostgreSQL connection string (e.g., Neon pooled URL) | Optional (uses in-memory fallback if omitted) |
+| `DIRECT_URL`                        | Direct PostgreSQL URL for Prisma migrations          | Optional                                      |
+| `GEMINI_API_KEY`                    | Google Gemini API key for server-side AI features    | Optional                                      |
+| `SMS_PROVIDER`                      | `kavenegar`, `ippanel`, or `melipayamak`             | Optional (uses dev OTP preview if omitted)    |
+| `KAVENEGAR_API_KEY` / `SMS_API_KEY` | API key for your SMS provider                        | Optional                                      |
 
-### ۴. راه‌اندازی دیتابیس (در صورت اتصال PostgreSQL)
+### 4. Setup Database (Optional)
+
+If using PostgreSQL:
+
 ```bash
 npm run prisma:generate
 npm run prisma:push
 npm run prisma:seed
 ```
 
-### ۵. اجرای پروژه در حالت توسعه
+### 5. Run Development Server
+
 ```bash
 npm run dev
 ```
-سایت روی آدرس **`http://localhost:3000`** در دسترس خواهد بود.
+
+The app will be available at **`http://localhost:3000`**.
 
 ---
 
-## 📜 اسکریپت‌های کاربردی
+## 📜 Available Scripts
 
-| دستور | عملکرد |
-| :--- | :--- |
-| `npm run dev` | اجرای هم‌زمان فرانت‌اند Vite و سرور Express روی پورت `3000` |
-| `npm run build` | بیلد نهایی کلاینت (`dist/`) و باندل سرور (`dist/server.cjs`) |
-| `npm start` | اجرای نسخه پروداکشن سرور Node.js |
-| `npm run lint` | بررسی خطاهای تایپی TypeScript (`tsc --noEmit`) |
-| `npm run prisma:studio` | باز کردن پنل گرافیکی دیتابیس Prisma |
+| Command                 | Description                                                         |
+| :---------------------- | :------------------------------------------------------------------ |
+| `npm run dev`           | Start full-stack Vite + Express development server on port `3000`   |
+| `npm run build`         | Build client bundle (`dist/`) and bundle server (`dist/server.cjs`) |
+| `npm start`             | Run production Node.js server                                       |
+| `npm run lint`          | Run TypeScript type checking (`tsc --noEmit`)                       |
+| `npm run prisma:studio` | Open Prisma visual database browser                                 |
 
 ---
 
-## 🌐 راهنمای انتشار روی Vercel
+## 🌐 Deploying to Vercel
 
-این پروژه به صورت پیش‌فرض برای **Vercel** آماده شده است:
+This repository is already configured for **Vercel**:
 
-1. پروژه را در **GitHub** پوش (Push) کنید.
-2. وارد سایت [vercel.com](https://vercel.com) شوید و روی **Add New → Project** کلیک کنید.
-3. مخزن گیت‌هاب خود را **Import** کنید.
-4. تنظیمات پیش‌فرض **Vite** (`Build Command: npm run build` و `Output Directory: dist`) را تایید کنید.
-5. در صورت نیاز متغیرهای محیطی (`DATABASE_URL`، `SMS_API_KEY` و...) را در بخش **Environment Variables** وارد کنید.
-6. روی **Deploy** کلیک کنید؛ فایل `vercel.json` به صورت خودکار تمام درخواست‌های `/api/*` را به `/api/index.ts` هدایت می‌کند.
+1. Push your code to **GitHub**.
+2. Go to [vercel.com](https://vercel.com) and click **Add New → Project**.
+3. Import your GitHub repository.
+4. Keep the default **Vite** preset (`Build Command: npm run build`, `Output Directory: dist`).
+5. Add your environment variables (`DATABASE_URL`, `SMS_API_KEY`, etc.) in **Project Settings → Environment Variables** if needed.
+6. Click **Deploy** — `vercel.json` automatically routes `/api/*` requests to `/api/index.ts`.
 
 ---
 
 <div align="center">
 
-**[⬆ بازگشت به بالا](#-آشپزخانه-مدرن-modern-kitchen)** · **[🇺🇸 English Version](./README.md)**
-
-</div>
+**[⬆ Back to Top](#-modern-kitchen-آشپزخانه-مدرن)** · **[🇮🇷 نسخه فارسی](./README.fa.md)**
 
 </div>
